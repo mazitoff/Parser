@@ -22,6 +22,9 @@ namespace Parser
             Text:data21.txt(47B);Yet another string_887";
 
             FileList fileList = new FileList();
+            TextFileList textFileList = new TextFileList();
+            ImageFileList imageFileList = new ImageFileList();
+            MovieFileList movieFileList = new MovieFileList();
             TextFileInfo textFileInfo = new TextFileInfo();
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             MovieFileInfo movieFileInfo = new MovieFileInfo();
@@ -149,16 +152,19 @@ namespace Parser
                         if (action == "DefineDetailInfoForTxt")
                         {
                             fileList.Add(textFileInfo);
+                            textFileList.Add(textFileInfo);
                             textFileInfo = new TextFileInfo();
                         }
                         else if (action == "DefineDetailInfoForImg")
                         {
                             fileList.Add(imageFileInfo);
+                            imageFileList.Add(imageFileInfo);
                             imageFileInfo = new ImageFileInfo();
                         }
                         else if (action == "DefineDetailInfoForMov")
                         {
                             fileList.Add(movieFileInfo);
+                            movieFileList.Add(movieFileInfo);
                             movieFileInfo = new MovieFileInfo();
                         }
                         action = "DefineTypeInfo";
@@ -177,6 +183,12 @@ namespace Parser
             Console.WriteLine("************************** R E S U L T *********************************");
             Console.WriteLine("************************************************************************");
             fileList.PrintAll();
+            Console.WriteLine("************************************************************************");
+            textFileList.Print();
+            Console.WriteLine("************************************************************************");
+            movieFileList.Print();
+            Console.WriteLine("************************************************************************");
+            imageFileList.Print();
             Console.WriteLine("************************************************************************");
             Console.ReadKey();
         }
