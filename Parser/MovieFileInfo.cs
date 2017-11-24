@@ -35,22 +35,22 @@ namespace Parser
 
         public string ResolutionX
         {
-            get => _resolutionX;
+            get { return _resolutionX; }
             set { _resolutionX = value; }
         }
         public string ResolutionY
         {
-            get => _resolutionY;
+            get { return _resolutionY; }
             set { _resolutionY = value; }
         }
         public string LenghtHH
         {
-            get => _lenghtHH;
+            get { return _lenghtHH; }
             set { _lenghtHH = value; }
         }
         public string LenghtMM
         {
-            get => _lenghtMM;
+            get { return _lenghtMM; }
             set { _lenghtMM = value; }
         }
     }

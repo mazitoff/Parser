@@ -13,13 +13,13 @@ namespace Parser
 
         public string FileName
         {
-            get => _fileName;
+            get { return _fileName; }
             set { _fileName = value; }
         }
 
         public string Size
         {
-            get => _size;
+            get { return _size; }
             set { _size = value; }
         }
 

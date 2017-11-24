@@ -29,7 +29,7 @@ namespace Parser
 
         public string Content
         {
-            get => _content;
+            get { return _content; }
             set { _content = value; }
         }
     }

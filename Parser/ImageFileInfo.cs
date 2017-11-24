@@ -30,12 +30,12 @@ namespace Parser
 
         public string ResolutionX
         {
-            get => _resolutionX;
+            get { return _resolutionX; }
             set { _resolutionX = value; }
         }
         public string ResolutionY
         {
-            get => _resolutionY;
+            get { return _resolutionY; }
             set { _resolutionY = value; }
         }
     }
