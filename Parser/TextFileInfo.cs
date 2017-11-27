@@ -8,29 +8,11 @@ namespace Parser
 {
     class TextFileInfo : FileInfo
     {
-        static char[] _separates;
-
-        private string _content;
-
-        static TextFileInfo()
+        public TextFileInfo(string name, string extension, string size, string content)
+            : base(name, extension, size)
         {
-            _separates = new char[]
-            {
-                '(',
-                ')',
-                ';',
-                (char)13
-            };
+            Content = content;
         }
-
-        public char[] Separates => _separates;
-
-        public int CountSeparates => _separates.Length;
-
-        public string Content
-        {
-            get { return _content; }
-            set { _content = value; }
-        }
+        public string Content { get; set; }
     }
 }

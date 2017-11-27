@@ -8,50 +8,17 @@ namespace Parser
 {
     class MovieFileInfo : FileInfo
     {
-        static char[] _separates;
-
-        private string _resolutionX;
-        private string _resolutionY;
-        private string _lenghtHH;
-        private string _lenghtMM;
-
-        static MovieFileInfo()
+        public MovieFileInfo(string name, string extension, string size, string content, string resolutionX, string resolutionY, string lenghtHH, string lenghtMM)
+            :base(name, extension, size)
         {
-            _separates = new char[]
-            {
-                '(',
-                ')',
-                ';',
-                (char)1093,
-                ';',
-                'h',
-                'm',
-                (char)13
-            };
+            ResolutionX = resolutionX;
+            ResolutionY = resolutionY;
+            LenghtHH = lenghtHH;
+            LenghtMM = lenghtMM;
         }
-        public char[] Separates => _separates;
-
-        public int CountSeparates => _separates.Length;
-
-        public string ResolutionX
-        {
-            get { return _resolutionX; }
-            set { _resolutionX = value; }
-        }
-        public string ResolutionY
-        {
-            get { return _resolutionY; }
-            set { _resolutionY = value; }
-        }
-        public string LenghtHH
-        {
-            get { return _lenghtHH; }
-            set { _lenghtHH = value; }
-        }
-        public string LenghtMM
-        {
-            get { return _lenghtMM; }
-            set { _lenghtMM = value; }
-        }
+        public string ResolutionX { get; set; }
+        public string ResolutionY { get; set; }
+        public string LenghtHH { get; set; }
+        public string LenghtMM { get; set; }
     }
 }

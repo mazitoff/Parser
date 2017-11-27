@@ -8,35 +8,13 @@ namespace Parser
 {
     class ImageFileInfo : FileInfo
     {
-        static char[] _separates;
-
-        private string _resolutionX;
-        private string _resolutionY;
-
-        static ImageFileInfo()
+        public ImageFileInfo(string name, string extension, string size, string resolutionX, string resolutionY)
+            : base(name, extension, size)
         {
-            _separates = new char[]
-            {
-                '(',
-                ')',
-                ';',
-                (char)1093,
-                (char)13
-            };
+            ResolutionX = resolutionX;
+            ResolutionY = resolutionY;
         }
-        public char[] Separates => _separates;
-
-        public int CountSeparates => _separates.Length;
-
-        public string ResolutionX
-        {
-            get { return _resolutionX; }
-            set { _resolutionX = value; }
-        }
-        public string ResolutionY
-        {
-            get { return _resolutionY; }
-            set { _resolutionY = value; }
-        }
+        public string ResolutionX { get; set; }
+        public string ResolutionY { get; set; }
     }
 }

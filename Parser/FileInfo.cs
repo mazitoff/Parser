@@ -6,24 +6,17 @@ using System.Threading.Tasks;
 
 namespace Parser
 {
-    class FileInfo
+    abstract class FileInfo
     {
-        private string _fileName;
-        private string _size;
+        public string Name { get; set; }
+        public string Extension { get; set; }
+        public string Size { get; set; }
 
-        public string FileName
+        public FileInfo(string name, string extension, string size)
         {
-            get { return _fileName; }
-            set { _fileName = value; }
+            Name = name;
+            Extension = extension;
+            Size = size;
         }
-
-        public string Size
-        {
-            get { return _size; }
-            set { _size = value; }
-        }
-
-        //public char[] Separates => _separates;
-        //public int CountSeparates => _separates.Length;
     }
 }

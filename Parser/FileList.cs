@@ -26,7 +26,7 @@ namespace Parser
         {
             for (int i = 0; i < _curIndex; i++)
             {
-                Console.WriteLine(_fileList[i].FileName);
+                Console.WriteLine(_fileList[i].ToString());
             }
         }
     }
