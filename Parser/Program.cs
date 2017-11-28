@@ -44,6 +44,7 @@ namespace Parser
             string lenghtHH = "";
             string lenghtMM = "";
             bool endDefine = false;
+            string fullName = "";
 
             for (int i = 0; i < strInfo.Length; i++)
             {
@@ -95,19 +96,23 @@ namespace Parser
                     {
                         if (action == "DefineDetailInfoForTxt")
                         {
+                            //if (indexSeparate == 1)
+                            //{
+                            //    name = curStr;
+                            //}
                             if (indexSeparate == 1)
                             {
-                                name = curStr;
-                            }
+                                fullName = curStr;
+                                GetNameAndExtension(fullName, out name, out extension);
+                            }                            //else if (indexSeparate == 2)
+                            //{
+                            //    extension = curStr;
+                            //}
                             else if (indexSeparate == 2)
-                            {
-                                extension = curStr;
-                            }
-                            else if (indexSeparate == 3)
                             {
                                 size = curStr;
                             } 
-                            else if (indexSeparate == 5)
+                            else if (indexSeparate == 4)
                             {
                                 content = curStr;
                                 endDefine = true;
@@ -119,23 +124,28 @@ namespace Parser
                         }
                         else if (action == "DefineDetailInfoForImg")
                         {
+                            //if (indexSeparate == 1)
+                            //{
+                            //    name = curStr;
+                            //}
                             if (indexSeparate == 1)
                             {
-                                name = curStr;
-                            }
+                                fullName = curStr;
+                                GetNameAndExtension(fullName, out name, out extension);
+                            }                            //else if (indexSeparate == 2)
+                            //else if (indexSeparate == 2)
+                            //{
+                            //    extension = curStr;
+                            //}
                             else if (indexSeparate == 2)
-                            {
-                                extension = curStr;
-                            }
-                            else if (indexSeparate == 3)
                             {
                                 size = curStr;
                             }
-                            else if (indexSeparate == 5)
+                            else if (indexSeparate == 4)
                             {
                                 resolutionX = curStr;
                             }
-                            else if (indexSeparate == 6)
+                            else if (indexSeparate == 5)
                             {
                                 resolutionY = curStr;
                                 endDefine = true;
@@ -148,31 +158,36 @@ namespace Parser
                         }
                         else if (action == "DefineDetailInfoForMov")
                         {
+                            //if (indexSeparate == 1)
+                            //{
+                            //    name = curStr;
+                            //}
                             if (indexSeparate == 1)
                             {
-                                name = curStr;
-                            }
+                                fullName = curStr;
+                                GetNameAndExtension(fullName, out name, out extension);
+                            }                            //else if (indexSeparate == 2)
+                            //else if (indexSeparate == 2)
+                            //{
+                            //    extension = curStr;
+                            //}
                             else if (indexSeparate == 2)
-                            {
-                                extension = curStr;
-                            }
-                            else if (indexSeparate == 3)
                             {
                                 size = curStr;
                             }
-                            else if (indexSeparate == 5)
+                            else if (indexSeparate == 4)
                             {
                                 resolutionX = curStr;
                             }
-                            else if (indexSeparate == 6)
+                            else if (indexSeparate == 5)
                             {
                                 resolutionY = curStr;
                             }
-                            else if (indexSeparate == 7)
+                            else if (indexSeparate == 6)
                             {
                                 lenghtHH = curStr;
                             }
-                            else if (indexSeparate == 8)
+                            else if (indexSeparate == 7)
                             {
                                 lenghtMM = curStr;
                                 endDefine = true;
@@ -225,6 +240,31 @@ namespace Parser
             imageFileList.Print();
             Console.WriteLine("************************************************************************");
             Console.ReadKey();
+        }
+        static private void GetNameAndExtension(string name, out string body, out string extension)
+        {
+            body = "";
+            extension = "";
+            bool foundDot = false;
+            for (int i = name.Length - 1; i >= 0; i--)
+            {
+                if (foundDot == false)
+                {
+                    if (name[i] == '.')
+                    {
+                        foundDot = true;
+                    }
+                    else
+                    {
+                        extension = name[i] + extension;
+                    }
+                }
+                else
+                {
+                    body = name[i] + body;
+                }
+                //Console.WriteLine(name[i]);
+            }
         }
     }
 }

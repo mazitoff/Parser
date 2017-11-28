@@ -12,7 +12,7 @@ namespace Parser
         {
             _separatesTxt = new char[]
             {
-                '.',
+                //'.',
                 '(',
                 ')',
                 ';',
@@ -20,7 +20,7 @@ namespace Parser
             };
             _separatesImg = new char[]
             {
-                '.',
+                //'.',
                 '(',
                 ')',
                 ';',
@@ -29,7 +29,7 @@ namespace Parser
             };
             _separatesMov = new char[]
             {
-                '.',
+                //'.',
                 '(',
                  ')',
                 ';',
